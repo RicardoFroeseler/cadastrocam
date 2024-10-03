@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Mercadorias</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -13,8 +13,12 @@
             <!-- Campo para Código Interno (código de barras) -->
             <div class="form-group">
                 <label for="codigoInterno">Código Interno (Código de Barras):</label>
-                <input type="text" id="codigoInterno" name="codigoInterno" placeholder="Escaneie o código de barras">
+                <input type="text" id="codigoInterno" name="codigoInterno" placeholder="Escaneie o código de barras" readonly>
+                <button type="button" id="iniciarCameraBtn">Ativar Câmera</button>
             </div>
+
+            <!-- Área de vídeo para exibir a câmera -->
+            <div id="leitor-codigo" style="width: 300px; height: 200px;"></div>
             
             <!-- Campo para Nome/Descrição -->
             <div class="form-group">
@@ -22,6 +26,7 @@
                 <input type="text" id="nome" name="nome" placeholder="Insira o nome ou descrição">
             </div>
             
+            <!-- Outros campos continuam iguais... -->
             <!-- Campo para Preço de Custo -->
             <div class="form-group">
                 <label for="precoCusto">Preço de Custo:</label>
@@ -67,6 +72,8 @@
         </form>
     </div>
     
+    <!-- Importa a biblioteca Html5-qrcode -->
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
