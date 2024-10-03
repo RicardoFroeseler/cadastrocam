@@ -1,18 +1,22 @@
 // Inicializa o Html5QrCode e configura o leitor de código
 const html5QrCode = new Html5Qrcode("leitor-codigo");
+let cameraIsRunning = false; // Variável para verificar se a câmera está rodando
 
 // Função que será chamada ao escanear com sucesso
 function onScanSuccess(decodedText, decodedResult) {
-    console.log(`Código detectado: ${decodedText}`);
-    document.getElementById('codigoInterno').value = decodedText;
+    if (cameraIsRunning) {
+        console.log(`Código detectado: ${decodedText}`);
+        document.getElementById('codigoInterno').value = decodedText;
 
-    // Para a câmera automaticamente após escanear o código com sucesso
-    html5QrCode.stop().then(() => {
-        console.log("Câmera parada automaticamente após escanear.");
-        document.getElementById('pararCameraBtn').style.display = "none";  // Esconde o botão de parar
-    }).catch(err => {
-        console.error("Erro ao parar a câmera: ", err);
-    });
+        // Para a câmera automaticamente após escanear o código com sucesso
+        html5QrCode.stop().then(() => {
+            console.log("Câmera parada automaticamente após escanear.");
+            cameraIsRunning = false;  // Atualiza o estado para indicar que a câmera foi parada
+            document.getElementById('pararCameraBtn').style.display = "none";  // Esconde o botão de parar
+        }).catch(err => {
+            console.error("Erro ao parar a câmera: ", err);
+        });
+    }
 }
 
 // Função para lidar com falhas na leitura
@@ -22,28 +26,35 @@ function onScanFailure(error) {
 
 // Botão de iniciar a câmera
 document.getElementById('iniciarCameraBtn').addEventListener('click', function() {
-    // Força o uso da câmera traseira
-    html5QrCode.start(
-        { facingMode: { exact: "environment" } },  // Força o uso da câmera traseira
-        { fps: 10, qrbox: { width: 250, height: 250 } },  // Configurações de escaneamento
-        onScanSuccess,  // Função chamada ao escanear com sucesso
-        onScanFailure   // Função chamada em caso de erro de escaneamento
-    ).then(() => {
-        // Mostra o botão de parar a câmera
-        document.getElementById('pararCameraBtn').style.display = "block";
-    }).catch(err => {
-        console.error("Erro ao iniciar a câmera: ", err);
-    });
+    if (!cameraIsRunning) {
+        // Força o uso da câmera traseira
+        html5QrCode.start(
+            { facingMode: { exact: "environment" } },  // Força o uso da câmera traseira
+            { fps: 10, qrbox: { width: 250, height: 250 } },  // Configurações de escaneamento
+            onScanSuccess,  // Função chamada ao escanear com sucesso
+            onScanFailure   // Função chamada em caso de erro de escaneamento
+        ).then(() => {
+            // Marca que a câmera está rodando
+            cameraIsRunning = true;
+            // Mostra o botão de parar a câmera
+            document.getElementById('pararCameraBtn').style.display = "block";
+        }).catch(err => {
+            console.error("Erro ao iniciar a câmera: ", err);
+        });
+    }
 });
 
 // Botão de parar a câmera (caso o usuário queira parar manualmente)
 document.getElementById('pararCameraBtn').addEventListener('click', function() {
-    html5QrCode.stop().then(() => {
-        console.log("Câmera parada manualmente.");
-        document.getElementById('pararCameraBtn').style.display = "none";
-    }).catch(err => {
-        console.error("Erro ao parar a câmera: ", err);
-    });
+    if (cameraIsRunning) {
+        html5QrCode.stop().then(() => {
+            console.log("Câmera parada manualmente.");
+            cameraIsRunning = false;
+            document.getElementById('pararCameraBtn').style.display = "none";
+        }).catch(err => {
+            console.error("Erro ao parar a câmera: ", err);
+        });
+    }
 });
 
 // Escaneamento de arquivo de imagem
