@@ -5,6 +5,14 @@ const html5QrCode = new Html5Qrcode("leitor-codigo");
 function onScanSuccess(decodedText, decodedResult) {
     console.log(`Código detectado: ${decodedText}`);
     document.getElementById('codigoInterno').value = decodedText;
+
+    // Para a câmera automaticamente após escanear o código com sucesso
+    html5QrCode.stop().then(() => {
+        console.log("Câmera parada automaticamente após escanear.");
+        document.getElementById('pararCameraBtn').style.display = "none";  // Esconde o botão de parar
+    }).catch(err => {
+        console.error("Erro ao parar a câmera: ", err);
+    });
 }
 
 // Função para lidar com falhas na leitura
@@ -28,10 +36,10 @@ document.getElementById('iniciarCameraBtn').addEventListener('click', function()
     });
 });
 
-// Botão de parar a câmera
+// Botão de parar a câmera (caso o usuário queira parar manualmente)
 document.getElementById('pararCameraBtn').addEventListener('click', function() {
     html5QrCode.stop().then(() => {
-        console.log("Câmera parada.");
+        console.log("Câmera parada manualmente.");
         document.getElementById('pararCameraBtn').style.display = "none";
     }).catch(err => {
         console.error("Erro ao parar a câmera: ", err);
