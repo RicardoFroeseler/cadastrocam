@@ -12,27 +12,20 @@ function onScanFailure(error) {
     console.warn(`Erro ao escanear código: ${error}`);
 }
 
+
 // Botão de iniciar a câmera
 document.getElementById('iniciarCameraBtn').addEventListener('click', function() {
-    Html5Qrcode.getCameras().then(devices => {
-        if (devices && devices.length) {
-            let cameraId = devices[0].id;  // Usa a primeira câmera disponível
-
-            // Inicia a leitura pela câmera
-            html5QrCode.start(
-                cameraId, 
-                { fps: 10, qrbox: { width: 250, height: 250 } },
-                onScanSuccess,
-                onScanFailure
-            ).then(() => {
-                // Mostra o botão de parar a câmera
-                document.getElementById('pararCameraBtn').style.display = "block";
-            }).catch(err => {
-                console.error("Erro ao iniciar a câmera: ", err);
-            });
-        }
+    // Usa a câmera traseira
+    html5QrCode.start(
+        { facingMode: "environment" },  // Modo da câmera traseira
+        { fps: 10, qrbox: { width: 250, height: 250 } },  // Configurações de escaneamento
+        onScanSuccess,  // Função chamada ao escanear com sucesso
+        onScanFailure   // Função chamada em caso de erro de escaneamento
+    ).then(() => {
+        // Mostra o botão de parar a câmera
+        document.getElementById('pararCameraBtn').style.display = "block";
     }).catch(err => {
-        console.error("Erro ao acessar as câmeras: ", err);
+        console.error("Erro ao iniciar a câmera: ", err);
     });
 });
 
