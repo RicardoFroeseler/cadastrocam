@@ -8,9 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <h1>Cadastro de Mercadorias - Versão de Teste 1.7</h1>
+        <h1>Cadastro de Mercadorias</h1>
+
+        <!-- Exibição da versão do App -->
+        <p class="app-version">Versão do App: 1.8</p>
 
         <!-- Formulário de Cadastro -->
         <form id="cadastroMercadoriaForm">
@@ -18,16 +19,16 @@
             <div class="form-group">
                 <label for="codigoInterno">Código Interno (Código de Barras):</label>
                 <input type="text" id="codigoInterno" name="codigoInterno" placeholder="Escaneie o código de barras" readonly>
-                <button type="button" id="iniciarCameraBtn">Ativar Câmera</button>
-                <button type="button" id="pararCameraBtn" style="display: none;">Parar Câmera</button>
+                <button type="button" id="iniciarCameraBtn" class="btn">Ativar Câmera</button>
+                <button type="button" id="pararCameraBtn" class="btn" style="display: none;">Parar Câmera</button>
             </div>
 
             <!-- Área de Leitura de Câmera -->
-            <div id="leitor-codigo" style="width: 300px; height: 250px; margin-top: 10px;"></div>
+            <div id="leitor-codigo" class="camera-view"></div>
 
             <!-- Campo para Seleção de Arquivo (Imagem com QR ou Código de Barras) -->
             <div class="form-group">
-                <label for="qr-input-file">Caso não consiga escanear, você pode tirar uma foto do código de barras que também será capturado:</label>
+                <label for="qr-input-file">Ou selecione uma imagem com o código de barras:</label>
                 <input type="file" id="qr-input-file" accept="image/*" capture>
             </div>
 
@@ -78,7 +79,7 @@
             </div>
 
             <!-- Botão para Enviar o Formulário -->
-            <button type="submit">Cadastrar Mercadoria</button>
+            <button type="submit" class="btn">Cadastrar Mercadoria</button>
         </form>
     </div>
 
