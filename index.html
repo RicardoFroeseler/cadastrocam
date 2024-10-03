@@ -8,77 +8,42 @@
 </head>
 <body>
     <div class="container">
-        
-        <h1>Cadastro de Mercadorias</h1>
+        <h1>Cadastro de Mercadorias - Versão de Teste 1.2</h1>
+
+        <!-- Formulário de Cadastro -->
         <form id="cadastroMercadoriaForm">
-            <br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <h1> incluido versao de teste camera 1.1</h1>
-            <!-- Campo para Código Interno (código de barras) -->
+            <!-- Campo para Código Interno (Código de Barras ou QR Code) -->
             <div class="form-group">
                 <label for="codigoInterno">Código Interno (Código de Barras):</label>
                 <input type="text" id="codigoInterno" name="codigoInterno" placeholder="Escaneie o código de barras" readonly>
                 <button type="button" id="iniciarCameraBtn">Ativar Câmera</button>
+                <button type="button" id="pararCameraBtn" style="display: none;">Parar Câmera</button>
             </div>
 
-            <!-- Área de vídeo para exibir a câmera -->
-            <div id="leitor-codigo" style="width: 300px; height: 200px;"></div>
-            
-            <!-- Campo para Nome/Descrição -->
+            <!-- Área de Leitura de Câmera -->
+            <div id="leitor-codigo" style="width: 300px; height: 250px; margin-top: 10px;"></div>
+
+            <!-- Campo para Seleção de Arquivo (Imagem com QR ou Código de Barras) -->
+            <div class="form-group">
+                <label for="qr-input-file">Ou selecione uma imagem com o QR Code/Código de Barras:</label>
+                <input type="file" id="qr-input-file" accept="image/*" capture>
+            </div>
+
+            <!-- Outros Campos do Formulário (Nome, Preço, etc.) -->
             <div class="form-group">
                 <label for="nome">Nome ou Descrição:</label>
                 <input type="text" id="nome" name="nome" placeholder="Insira o nome ou descrição">
             </div>
-            
-            <!-- Outros campos continuam iguais... -->
-            <!-- Campo para Preço de Custo -->
-            <div class="form-group">
-                <label for="precoCusto">Preço de Custo:</label>
-                <input type="number" id="precoCusto" name="precoCusto" placeholder="Preço de Custo">
-            </div>
-            
-            <!-- Campo para Preço de Venda -->
-            <div class="form-group">
-                <label for="precoVenda">Preço de Venda:</label>
-                <input type="number" id="precoVenda" name="precoVenda" placeholder="Preço de Venda">
-            </div>
-            
-            <!-- Campo para Grupo -->
-            <div class="form-group">
-                <label for="grupo">Grupo:</label>
-                <input type="text" id="grupo" name="grupo" placeholder="Grupo da Mercadoria">
-            </div>
-            
-            <!-- Campo opcional para Quantidade -->
-            <div class="form-group">
-                <label for="quantidade">Quantidade (opcional):</label>
-                <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade">
-            </div>
-            
-            <!-- Campo para Unidade de Medida -->
-            <div class="form-group">
-                <label for="unidade">Unidade:</label>
-                <select id="unidade" name="unidade">
-                    <option value="kg">kg</option>
-                    <option value="un">un</option>
-                    <option value="outros">Outros</option>
-                </select>
-            </div>
-            
-            <!-- Checkbox para Fracionado -->
-            <div class="form-group">
-                <label for="fracionado">Fracionado:</label>
-                <input type="checkbox" id="fracionado" name="fracionado">
-            </div>
-            
-            <!-- Botão para Enviar o Formulário -->
+            <!-- Continue com os outros campos, conforme seu formulário original... -->
+
             <button type="submit">Cadastrar Mercadoria</button>
         </form>
     </div>
-    
-     <!-- Importa a biblioteca Html5-qrcode -->
-     <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-    
-     <!-- Importa o seu script JS -->
-     <script src="script.js"></script>
+
+    <!-- Importa a biblioteca Html5-qrcode da CDN -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+    <!-- Importa o script JS -->
+    <script src="script.js"></script>
 </body>
 </html>
