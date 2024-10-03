@@ -12,12 +12,11 @@ function onScanFailure(error) {
     console.warn(`Erro ao escanear código: ${error}`);
 }
 
-
 // Botão de iniciar a câmera
 document.getElementById('iniciarCameraBtn').addEventListener('click', function() {
-    // Usa a câmera traseira
+    // Força o uso da câmera traseira
     html5QrCode.start(
-        { facingMode: "environment" },  // Modo da câmera traseira
+        { facingMode: { exact: "environment" } },  // Força o uso da câmera traseira
         { fps: 10, qrbox: { width: 250, height: 250 } },  // Configurações de escaneamento
         onScanSuccess,  // Função chamada ao escanear com sucesso
         onScanFailure   // Função chamada em caso de erro de escaneamento
