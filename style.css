@@ -1,6 +1,6 @@
 /* Definir estilo para tema escuro */
 body {
-    background-color: #121212;
+    background-color: #181818;
     color: #e0e0e0;
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -8,53 +8,56 @@ body {
 }
 
 .container {
-    max-width: 500px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
 }
 
 h1 {
-    color: #ff4081; /* Cor vibrante para o título */
+    color: #00ffb3; /* Verde vibrante, baseado no design de referência */
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
 .app-version {
-    color: #b0bec5;
+    color: #00ffb3;
     font-size: 1rem;
     margin-top: -10px;
     margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    text-align: left;
 }
 
 input, select {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     border: none;
     border-radius: 8px;
-    background-color: #333;
+    background-color: #252525;
     color: #fff;
     margin-bottom: 10px;
 }
 
 input[type="file"] {
     padding: 5px;
-    background-color: #424242;
+    background-color: #303030;
     color: #b0bec5;
 }
 
 .btn {
-    background-color: #1de9b6;
-    color: #fff;
-    padding: 12px;
+    background-color: #00ffb3;
+    color: #181818;
+    padding: 10px;
     border: none;
     border-radius: 8px;
     font-size: 1.1rem;
@@ -64,14 +67,15 @@ input[type="file"] {
 }
 
 .btn:hover {
-    background-color: #00bfa5;
+    background-color: #00d696;
 }
 
 .camera-view {
-    width: 300px;
-    height: 250px;
+    width: 100%;
+    height: 200px;
     background-color: #212121;
     margin: 10px auto;
+    border-radius: 8px;
 }
 
 /* Estilo para bloquear telas grandes */
@@ -87,7 +91,7 @@ input[type="file"] {
     }
     body::before {
         content: "Este aplicativo deve ser utilizado em um dispositivo móvel.";
-        color: #ff4081;
+        color: #00ffb3;
         font-size: 1.5rem;
         text-align: center;
         margin: auto;
