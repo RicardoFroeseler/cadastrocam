@@ -8,7 +8,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Cadastro de Mercadorias - Versão de Teste 1.6</h1>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h1>Cadastro de Mercadorias - Versão de Teste 1.7</h1>
 
         <!-- Formulário de Cadastro -->
         <form id="cadastroMercadoriaForm">
@@ -25,17 +27,57 @@
 
             <!-- Campo para Seleção de Arquivo (Imagem com QR ou Código de Barras) -->
             <div class="form-group">
-                <label for="qr-input-file">Ou selecione uma imagem com o QR Code/Código de Barras:</label>
+                <label for="qr-input-file">Caso não consiga escanear, você pode tirar uma foto do código de barras que também será capturado:</label>
                 <input type="file" id="qr-input-file" accept="image/*" capture>
             </div>
 
-            <!-- Outros Campos do Formulário (Nome, Preço, etc.) -->
+            <!-- Campo para Nome/Descrição -->
             <div class="form-group">
                 <label for="nome">Nome ou Descrição:</label>
                 <input type="text" id="nome" name="nome" placeholder="Insira o nome ou descrição">
             </div>
-            <!-- Continue com os outros campos, conforme seu formulário original... -->
 
+            <!-- Campo para Preço de Custo -->
+            <div class="form-group">
+                <label for="precoCusto">Preço de Custo:</label>
+                <input type="number" id="precoCusto" name="precoCusto" placeholder="Preço de Custo">
+            </div>
+
+            <!-- Campo para Preço de Venda -->
+            <div class="form-group">
+                <label for="precoVenda">Preço de Venda:</label>
+                <input type="number" id="precoVenda" name="precoVenda" placeholder="Preço de Venda">
+            </div>
+
+            <!-- Campo para Grupo -->
+            <div class="form-group">
+                <label for="grupo">Grupo:</label>
+                <input type="text" id="grupo" name="grupo" placeholder="Grupo da Mercadoria">
+            </div>
+
+            <!-- Campo opcional para Quantidade -->
+            <div class="form-group">
+                <label for="quantidade">Quantidade (opcional):</label>
+                <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade">
+            </div>
+
+            <!-- Campo para Unidade de Medida -->
+            <div class="form-group">
+                <label for="unidade">Unidade:</label>
+                <select id="unidade" name="unidade">
+                    <option value="kg">kg</option>
+                    <option value="un">un</option>
+                    <option value="outros">Outros</option>
+                </select>
+            </div>
+
+            <!-- Checkbox para Fracionado -->
+            <div class="form-group">
+                <label for="fracionado">Fracionado:</label>
+                <input type="checkbox" id="fracionado" name="fracionado">
+            </div>
+
+            <!-- Botão para Enviar o Formulário -->
             <button type="submit">Cadastrar Mercadoria</button>
         </form>
     </div>
