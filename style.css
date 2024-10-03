@@ -46,6 +46,7 @@ input, select {
     background-color: #252525;
     color: #fff;
     margin-bottom: 10px;
+    width: 385px;
 }
 
 input[type="file"] {
@@ -71,8 +72,8 @@ input[type="file"] {
 }
 
 .camera-view {
-    width: 250px; /* Definir uma largura menor para a câmera */
-    height: 150px; /* Definir uma altura menor para a câmera */
+    width: 400px; /* Definir uma largura menor para a câmera */
+    height: 420px; /* Definir uma altura menor para a câmera */
     background-color: #212121;
     margin: 10px auto;
     border-radius: 8px;

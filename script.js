@@ -30,7 +30,7 @@ document.getElementById('iniciarCameraBtn').addEventListener('click', function()
         // Força o uso da câmera traseira
         html5QrCode.start(
             { facingMode: { exact: "environment" } },  // Força o uso da câmera traseira
-            { fps: 10, qrbox: { width: 150, height: 150 } },  // Configurações de escaneamento
+            { fps: 10, qrbox: { width: 250, height: 250 } },  // Configurações de escaneamento
             onScanSuccess,  // Função chamada ao escanear com sucesso
             onScanFailure   // Função chamada em caso de erro de escaneamento
         ).then(() => {
